@@ -21,7 +21,6 @@ async def lifespan(app_: FastAPI):
     log.info("Starting up...")
     log.info("run alembic upgrade head...")
     run_migrations()
-    print("s")
     yield
 
 
