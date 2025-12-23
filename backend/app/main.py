@@ -24,6 +24,6 @@ async def lifespan(app_: FastAPI):
     yield
 
 
-app = FastAPI(title="async-fastapi-sqlalchemy")
+app = FastAPI(title="async-fastapi-sqlalchemy", lifespan=lifespan)
 app.include_router(api_router, prefix=app_settings.openapi_prefix)
 # uvicorn.run(app, host="0.0.0.0", port=8000)
