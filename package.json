@@ -5,21 +5,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "---------------- DB ----------------": "",
-    "db-backend:up": "docker compose up -d",
-    "db:stop": "docker compose stop",
-    "db:down": "docker compose down",
-    "db:logs": "docker compose logs -f db",
+    "---------------- DOCKER ----------------": "",
+    "docker:up": "docker compose up -d",
+    "docker:stop": "docker compose stop",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f db",
     "---------------- SETUP ----------------": "",
+    "setup:backend-n-db": "yarn docker:up",
     "setup:frontend": "cd frontend && yarn install",
-    "setup": "yarn install && yarn setup:frontend  && yarn db-backend:up",
-    "setup-mac": "yarn install && yarn setup:frontend && yarn setup:backend-mac",
+    "setup": "yarn install && yarn setup:frontend  && yarn setup:backend-n-db",
     "---------------- DEV ----------------": "",
     "dev:frontend": "cd frontend && yarn dev",
-    "dev:backend": "cd backend && .\\venv\\Scripts\\python -m uvicorn main:app --reload --port 8000",
-    "dev:backend-mac": "cd backend && ./venv/bin/uvicorn main:app --reload --port 8000",
-    "dev": "concurrently \"yarn dev:frontend\" \"yarn dev:backend\" --names \"NEXT,API\" --prefix-colors \"blue,yellow\"",
-    "dev-mac": "concurrently \"yarn dev:frontend\" \"yarn dev:backend-mac\" --names \"NEXT,API\" --prefix-colors \"blue,yellow\""
+    "dev:backend": "yarn setup:backend-n-db",
+    "dev": "concurrently \"yarn dev:frontend\" \"yarn dev:backend\" --names \"NEXT,API\" --prefix-colors \"blue,yellow\""
   },
   "devDependencies": {
     "concurrently": "^9.2.1"

@@ -1,29 +1,28 @@
 version: "3.8"
 
 services:
-
+  # Backend Service
   app:
     build: ./backend
-    container_name: fastapi-dev
+    container_name: fastapi_insurance_dev
     ports:
       - "9000:9000"
     expose:
       - 9000
     command: uv run uvicorn main:app --port 9000 --host 0.0.0.0
     environment:
-      DATABASE_URL: postgresql://postgresAldin:aldinIzCarobneLampe@db:5432/postgresDB
+      DATABASE_URL: postgresql://postgresAldin:aldinIzCarobneLampe@db:5433/postgresDB
       DATABASE_HOST: db
-      DATABASE_PORT: 5432
+      DATABASE_PORT: 5433
         - WATCHFILES_FORCE_POLLING=true
     restart: always
-
 
   # Database Service
   db:
     image: postgres:15-alpine
-    container_name: my_monorepo_db
+    container_name: insurance_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       POSTGRES_USER: postgresAldin
       POSTGRES_PASSWORD: aldinIzCarobneLampe
@@ -31,26 +30,13 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     expose:
-      - 5432
+      - 5433
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgresAldin -d postgresDB"]
       interval: 5s
       timeout: 5s
       retries: 5
-    command: postgres -p 5432
-
-  # PGAdmin (Web UI to view your DB)- http://localhost:5050
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: my_monorepo_pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
-    ports:
-      - "5050:80"
-    depends_on:
-      - db
-
+    command: postgres -p 5433
 volumes:
   postgres_data:
