@@ -2,23 +2,23 @@ import React from "react";
 
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1512446813985-4a0eb1736836?auto=format&fit=crop&q=80&w=1200",
-    alt: "Detalj retro telefona",
+    src: "/images/gallery/halo uspomene 2.png",
+    alt: "Vintage telefon za audio guest book na venčanju",
     span: "sm:col-span-2 md:col-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1520923642038-b4259ace9439?auto=format&fit=crop&q=80&w=800",
-    alt: "Vintage ambijent",
+    src: "/images/gallery/halo uspomene 3.png",
+    alt: "Elegantna postavka audio guest book telefona",
     span: "sm:col-span-1 md:col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&q=80&w=800",
-    alt: "Gosti na venčanju",
+    src: "/images/gallery/halo uspomene 1.png",
+    alt: "Gosti ostavljaju audio poruke na venčanju",
     span: "sm:col-span-1 md:col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=1200",
-    alt: "Digitalne uspomene",
+    src: "/images/gallery/halo uspomene 4.png",
+    alt: "Sačuvane audio uspomene sa venčanja",
     span: "sm:col-span-2 md:col-span-2",
   },
 ];
@@ -27,10 +27,14 @@ const Gallery: React.FC = () => {
   return (
     <section id="gallery" className="py-16 sm:py-24 md:py-32 bg-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-xl mb-10 sm:mb-14 md:mb-20">
+        <div className=" mb-10 sm:mb-14 md:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#232323] mb-6">
-            Pogledajte atmosferu
+            Trenuci koji govore
           </h2>
+          <p className="text-lg text-[#232323]/50 ">
+            Svako venčanje je priča za sebe, a naš telefon zauvek čuva baš Vašu
+            jedinstvenu priču.
+          </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {images.map((img, index) => (

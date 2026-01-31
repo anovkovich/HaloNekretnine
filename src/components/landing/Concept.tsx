@@ -1,37 +1,43 @@
 import React from "react";
-import { Sparkles, Heart, Infinity as InfinityIcon } from "lucide-react";
+import { Heart, Infinity as InfinityIcon, HeartHandshake } from "lucide-react";
 
 const points = [
   {
-    icon: <Sparkles className="text-[#AE343F]" size={40} />,
-    title: "Autentičnost Glasa",
-    description:
-      "Papir trpi sve, ali glas otkriva pravu iskrenost. Svaki drhtaj, osmeh i uzdah koji se čuje dok pričaju je trenutak koji ne bledi.",
-  },
-  {
     icon: <Heart className="text-[#AE343F]" size={40} />,
-    title: "Emocija Trenutka",
+
+    title: "Iskrenost & Moć emocija",
     description:
-      "Zamislite da za 20 godina ponovo čujete glas svoje bake ili najboljeg prijatelja koji vam čestita najvažniji dan u životu.",
+      "Smeh dok vam kum čestita. Drhtaj u glasu Vaše majke kroz suze sreće. To su trenuci koje nijedna fotografija ne može da sačuva — ali glas može.",
   },
   {
     icon: <InfinityIcon className="text-[#AE343F]" size={40} />,
-    title: "Digitalna Večnost",
+    title: "Nasleđe za generacije",
     description:
-      "Fotografije su za oči, a audio poruke su za dušu. Svi snimci ostaju u vašem trajnom vlasništvu u digitalnom formatu.",
+      "Jednog dana pustićete svojoj deci glas njihovog dede na Vašoj svadbi, osmeh bake, porodičnu istoriju kroz sačuvan zvuk. Poklon koji je večan.",
+  },
+  {
+    icon: <HeartHandshake className="text-[#AE343F]" size={40} />,
+    title: "Mi brinemo o svemu",
+    description:
+      "Tu smo za dogovor, tehničku podršku, sve do finalnih snimaka — brzo i lako, vaš jedini zadatak je da uživate. Za sve ostalo smo tu mi.",
   },
 ];
 
 const Concept: React.FC = () => {
   return (
-    <section id="concept" className="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden">
+    <section
+      id="concept"
+      className="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-24">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif text-[#232323] mb-8">
-            Zašto baš <span className="italic text-[#AE343F]">zvuk</span>?
+            Zašto parovi biraju{" "}
+            <span className="italic text-[#AE343F]">nas</span>?
           </h2>
           <p className="text-xl text-[#232323]/50 leading-relaxed font-light">
-            HALO Uspomene vraća intimnost i čaroliju glasa na vaše proslave.
+            Jer znamo da je vaše venčanje jedinstveno i zaslužuje uspomene koje
+            traju večno.
           </p>
         </div>
 

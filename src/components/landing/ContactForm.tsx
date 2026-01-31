@@ -121,7 +121,9 @@ const ContactForm: React.FC = () => {
           type="text"
           name="website"
           value={formData.honeypot}
-          onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, honeypot: e.target.value })
+          }
           className="absolute -left-[9999px] opacity-0 pointer-events-none"
           tabIndex={-1}
           autoComplete="off"
@@ -198,7 +200,7 @@ const ContactForm: React.FC = () => {
             <Package size={14} className="text-[#AE343F]" /> Izaberite Paket
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {["classic", "premium"].map((pkg) => (
+            {["essential", "premium"].map((pkg) => (
               <button
                 key={pkg}
                 type="button"
@@ -242,11 +244,6 @@ const ContactForm: React.FC = () => {
           <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
         )}
       </button>
-
-      <p className="text-center text-xs text-[#F5F4DC]/20 font-light italic mt-6">
-        * Slanjem upita potvrđujete da ste saglasni sa obradom podataka u svrhu
-        rezervacije.
-      </p>
     </form>
   );
 };

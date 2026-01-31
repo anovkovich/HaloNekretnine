@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
           <div className="hero-text">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#AE343F]/10 text-[#AE343F] rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-8">
               <Sparkles size={14} className="animate-pulse" />
-              Audio Guest Book koji osvaja srca
+              Vaš Dan Zaslužuje Više Od Fotografija
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-serif text-[#232323] leading-[1.05] mb-8">
@@ -43,9 +43,9 @@ const Hero: React.FC = () => {
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-[#232323]/60 mb-8 sm:mb-10 md:mb-12 max-w-lg leading-relaxed font-light">
-              Zamenite tradicionalne papirne knjige utisaka nečim magičnim.
-              Sačuvajte smeh, emociju i glasove onih koji vam najviše znače uz
-              naš autentični retro telefon.
+              Zamislite da kroz nekoliko godina ponovo čujete kako vam baka
+              čestita venčanje. Mi brinemo o svakom detalju, a vi samo uživajte
+              u najlepšem danu svog života.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5">
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
                 href="#book"
                 className="btn bg-[#AE343F] hover:bg-[#8A2A32] text-[#F5F4DC] btn-lg rounded-full px-12 shadow-2xl shadow-[#AE343F]/30 group border-none"
               >
-                Rezerviši Datum
+                Zakažite Besplatne Konsultacije
                 <ArrowRight
                   size={20}
                   className="group-hover:translate-x-1.5 transition-transform"
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
                 href="#how-it-works"
                 className="btn btn-outline border-[#232323]/20 text-[#232323] hover:bg-[#232323] hover:text-[#F5F4DC] hover:border-[#232323] btn-lg rounded-full px-12"
               >
-                Kako radi?
+                Otkrijte Kako
               </a>
             </div>
           </div>

@@ -3,21 +3,21 @@ import React from "react";
 const steps = [
   {
     number: "01",
-    title: "Postavljanje",
+    title: "Upoznajemo se",
     description:
-      "Naš tim postavlja retro telefon na dogovoreno mesto sa elegantnim uputstvom.",
+      "Kroz kratak razgovor saznajemo sve o Vašem venčanju — stil, lokaciju, viziju. Zajedno biramo savršeno mesto za telefon.",
   },
   {
     number: "02",
-    title: "Snimanje Poruka",
+    title: "Donosimo magiju",
     description:
-      "Gosti podižu slušalicu i nakon vašeg pozdrava ostavljaju svoju čestitku.",
+      "Telefon stiže na Vašu adresu tačno na vreme,  u dogovoru sa Vama. Ukoliko je proslava u Novom Sadu, naš tim stiže ujutro pre gostiju i postavlja telefon sa govornicom i dekoracijom.",
   },
   {
     number: "03",
-    title: "Večne Uspomene",
+    title: "Vi dobijate blago",
     description:
-      "U roku od 48h dobijate sve audio fajlove u vašem digitalnom albumu.",
+      "U roku od 48 sati, sve poruke Vaših najmilijih čekaju Vas na jednom mestu — digitalno sačuvane zauvek, spremne za deljenje sa najbližima i čuvanje uspomena koje Vas nikada neće napustiti.",
   },
 ];
 
@@ -31,8 +31,8 @@ const HowItWorks: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 sm:mb-16 md:mb-24 gap-6 sm:gap-8">
           <div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-serif mb-6 leading-none">
-              Kako <br />
-              <span className="text-[#232323] italic">funkcioniše?</span>
+              Tri koraka do <br />
+              <span className="text-[#232323] italic">večnih uspomena</span>
             </h2>
             <div className="w-32 h-1.5 bg-[#232323]"></div>
           </div>
@@ -54,7 +54,9 @@ const HowItWorks: React.FC = () => {
                       {step.number}
                     </span>
                     <div className="mt-[-2rem] sm:mt-[-3rem] md:mt-[-4rem] relative z-10">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif mb-6">{step.title}</h3>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif mb-6">
+                        {step.title}
+                      </h3>
                       <p
                         className={`text-[#F5F4DC]/70 text-base sm:text-lg md:text-xl font-light ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}
                       >

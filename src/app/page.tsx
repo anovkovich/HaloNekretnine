@@ -25,11 +25,12 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-4xl relative z-10">
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mb-6">
-              Rezervišite Svoj Datum
+              Kada je Vaše Venčanje?
             </h2>
             <p className="text-lg text-[#F5F4DC]/60 max-w-2xl mx-auto">
-              Naši kalendari se brzo popunjavaju. Osigurajte retro šarm glasa
-              na vašoj proslavi popunjavanjem forme ispod.
+              Svaki mesec radimo sa ograničenim brojem događaja kako bismo
+              svakom posvetili punu pažnju. Javite nam se na vreme — a mi ćemo
+              Vam omogućiti da Vaš događaj bude jedinstven i nezaboravan.
             </p>
           </div>
 

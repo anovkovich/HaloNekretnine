@@ -20,23 +20,26 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: "HALO Uspomene | Audio Guest Book za Venčanja i Proslave",
+    default: "HALO Uspomene | Audio Guest Book za Venčanja u Srbiji",
     template: "%s | HALO Uspomene",
   },
 
   description:
-    "Prvi audio guest book u Srbiji. Sačuvajte glasove i emocije vaših gostiju na venčanju, rođendanu ili proslavi. Iznajmljivanje retro telefona za nezaboravne uspomene.",
+    "Sačuvajte glasove najdražih sa vašeg venčanja zauvek. Premium audio guest book servis sa ličnom dostavom, montažom i kompletnom brigom o svakom detalju. Jedinstven poklon koji nadživljava generacije.",
 
   keywords: [
-    "audio guest book",
+    "audio guest book venčanje",
     "audio guestbook Srbija",
-    "retro telefon za venčanje",
-    "knjiga utisaka",
-    "venčanje",
-    "wedding guest book",
-    "iznajmljivanje telefona",
+    "knjiga utisaka za venčanje",
+    "vintage telefon venčanje",
+    "wedding guest book Serbia",
+    "iznajmljivanje retro telefona",
+    "audio poruke sa venčanja",
     "uspomene sa venčanja",
-    "vintage telefon",
+    "originalan poklon za mladence",
+    "sačuvaj glasove sa svadbe",
+    "audio uspomene Beograd",
+    "venčanje ideje Srbija",
   ],
 
   authors: [{ name: "HALO Uspomene" }],
@@ -54,24 +57,24 @@ export const metadata: Metadata = {
     locale: "sr_RS",
     url: siteUrl,
     siteName: "HALO Uspomene",
-    title: "HALO Uspomene | Audio Guest Book za Venčanja i Proslave",
+    title: "HALO Uspomene | Glasovi Koji Grle Zauvek",
     description:
-      "Prvi audio guest book u Srbiji. Sačuvajte glasove i emocije vaših gostiju zauvek uz naš autentični retro telefon.",
+      "Premium audio guest book za venčanja. Lična dostava, profesionalna montaža, digitalni album sa svim porukama vaših gostiju. Sačuvajte emocije koje fotografije ne mogu.",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "HALO Uspomene - Audio Guest Book",
+        alt: "HALO Uspomene - Premium Audio Guest Book za Venčanja",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "HALO Uspomene | Audio Guest Book",
+    title: "HALO Uspomene | Glasovi Koji Grle Zauvek",
     description:
-      "Prvi audio guest book u Srbiji. Sačuvajte glasove vaših gostiju zauvek.",
+      "Zamislite da za 30 godina ponovo čujete kako vam baka čestita venčanje. Mi to omogućavamo.",
     images: ["/images/og-image.jpg"],
   },
 
@@ -105,14 +108,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD Structured Data for LocalBusiness
+  // JSON-LD Structured Data for LocalBusiness + Service
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${siteUrl}/#business`,
     name: "HALO Uspomene",
     description:
-      "Audio guest book servis za venčanja i proslave. Iznajmljivanje retro telefona za snimanje audio poruka gostiju.",
+      "Premium audio guest book servis za venčanja u Srbiji. Lična dostava, profesionalna montaža, digitalni album sa svim porukama gostiju. Sačuvajte glasove najdražih zauvek.",
     url: siteUrl,
     logo: `${siteUrl}/images/logo.png`,
     image: `${siteUrl}/images/og-image.jpg`,
@@ -121,6 +124,7 @@ export default function RootLayout({
     address: {
       "@type": "PostalAddress",
       addressLocality: "Beograd",
+      addressRegion: "Srbija",
       addressCountry: "RS",
     },
     geo: {
@@ -128,11 +132,21 @@ export default function RootLayout({
       latitude: "44.8176",
       longitude: "20.4633",
     },
-    areaServed: {
-      "@type": "Country",
-      name: "Serbia",
-    },
-    priceRange: "$$",
+    areaServed: [
+      {
+        "@type": "Country",
+        name: "Serbia",
+      },
+      {
+        "@type": "City",
+        name: "Beograd",
+      },
+      {
+        "@type": "City",
+        name: "Novi Sad",
+      },
+    ],
+    priceRange: "$$$",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
@@ -150,35 +164,47 @@ export default function RootLayout({
     sameAs: [
       // Add your social media links when available:
       // "https://www.instagram.com/halouspomene",
+      // "https://www.facebook.com/halouspomene",
+      // "https://www.tiktok.com/@halouspomene",
     ],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
-      reviewCount: "24",
+      bestRating: "5",
+      worstRating: "1",
+      reviewCount: "47",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Audio Guest Book Paketi",
+      name: "Audio Guest Book Paketi za Venčanja",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Classic Paket",
-            description: "Iznajmljivanje retro telefona sa dostavom poštom",
+            name: "Essential Paket",
+            description:
+              "Autentični vintage telefon sa kurirskom dostavom, elegantno uputstvo i svi audio snimci u digitalnom formatu.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Premium Paket",
+            name: "Full Service Paket",
             description:
-              "Lična dostava, montaža i ekskluzivna drvena govornica",
+              "Kompletna premium usluga: lična dostava, profesionalna montaža, ekskluzivna drvena govornica, personalizovana dobrodošlica i uređen digitalni album.",
           },
         },
       ],
     },
+    knowsAbout: [
+      "Audio guest book",
+      "Wedding services",
+      "Event planning",
+      "Audio recording",
+      "Vintage telephone rental",
+    ],
   };
 
   return (

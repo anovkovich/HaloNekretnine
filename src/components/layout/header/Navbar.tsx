@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Koncept", href: "#concept" },
-  { name: "Kako radi", href: "#how-it-works" },
+  { name: "Zašto Mi", href: "#concept" },
+  { name: "Proces", href: "#how-it-works" },
   { name: "Paketi", href: "#packages" },
   { name: "Galerija", href: "#gallery" },
 ];
@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
               href="#book"
               className="btn bg-[#232323] hover:bg-[#AE343F] text-[#F5F4DC] rounded-full px-10 shadow-xl shadow-black/10 border-none transition-all"
             >
-              Rezerviši
+              Kontakt
             </a>
           </div>
 
@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
               onClick={() => setIsMenuOpen(false)}
               className="btn bg-[#AE343F] hover:bg-[#8A2A32] w-full text-[#F5F4DC] rounded-xl text-lg border-none min-h-[48px]"
             >
-              Pošalji Upit
+              Zakazite Razgovor
             </a>
           </li>
         </ul>
