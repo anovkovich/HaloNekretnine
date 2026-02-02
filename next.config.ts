@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
   // Enable static export for GitHub Pages
   output: "export",
@@ -10,8 +12,9 @@ const nextConfig: NextConfig = {
   },
 
   // Deploying to subpath: username.github.io/repo-name
-  basePath: "/HaloUspomene",
-  assetPrefix: "/HaloUspomene",
+  // Only apply basePath in production (so local dev works normally)
+  basePath: isProd ? "/HaloUspomene" : "",
+  assetPrefix: isProd ? "/HaloUspomene" : "",
 
   // Trailing slashes help with GitHub Pages routing
   trailingSlash: true,

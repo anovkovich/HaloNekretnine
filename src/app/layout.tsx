@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Great_Vibes, Cormorant_Garamond, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header/Navbar";
 import Footer from "@/components/layout/footer/Footer";
@@ -12,6 +12,29 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// Wedding fonts
+const greatVibes = Great_Vibes({
+  weight: "400",
+  variable: "--font-script",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+const josefinSans = Josefin_Sans({
+  weight: ["300", "400"],
+  variable: "--font-elegant",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 const siteUrl =
@@ -218,11 +241,9 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${greatVibes.variable} ${cormorantGaramond.variable} ${josefinSans.variable} antialiased`}
       >
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );
