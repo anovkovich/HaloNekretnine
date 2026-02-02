@@ -125,6 +125,7 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     { value: timeLeft.seconds, label: "Sekundi" },
   ];
 
+  // coutdown layout
   return (
     <div className="py-6 sm:py-8">
       {/* Mobile: 2x2 grid */}
