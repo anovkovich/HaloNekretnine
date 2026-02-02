@@ -1,5 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Great_Vibes, Cormorant_Garamond, Josefin_Sans } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Great_Vibes,
+  Dancing_Script,
+  Alex_Brush,
+  Parisienne,
+  Allura,
+  Cormorant_Garamond,
+  Josefin_Sans
+} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header/Navbar";
 import Footer from "@/components/layout/footer/Footer";
@@ -14,10 +24,38 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Wedding fonts
+// Wedding script fonts
 const greatVibes = Great_Vibes({
   weight: "400",
-  variable: "--font-script",
+  variable: "--font-great-vibes",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const dancingScript = Dancing_Script({
+  weight: "400",
+  variable: "--font-dancing-script",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const alexBrush = Alex_Brush({
+  weight: "400",
+  variable: "--font-alex-brush",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const parisienne = Parisienne({
+  weight: "400",
+  variable: "--font-parisienne",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const allura = Allura({
+  weight: "400",
+  variable: "--font-allura",
   subsets: ["latin"],
   display: "swap",
 });
@@ -241,7 +279,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${greatVibes.variable} ${cormorantGaramond.variable} ${josefinSans.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${greatVibes.variable} ${dancingScript.variable} ${alexBrush.variable} ${parisienne.variable} ${allura.variable} ${cormorantGaramond.variable} ${josefinSans.variable} antialiased`}
       >
         {children}
       </body>

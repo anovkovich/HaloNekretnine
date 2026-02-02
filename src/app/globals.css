@@ -18,8 +18,9 @@
 }
 
 /* Font utility classes - using CSS variables set by Next.js font loader */
+/* Default script font (Great Vibes) for non-invitation pages */
 .font-script {
-  font-family: var(--font-script), cursive;
+  font-family: var(--theme-script-font, var(--font-great-vibes)), cursive;
 }
 
 .font-serif {

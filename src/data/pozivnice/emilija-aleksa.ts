@@ -2,6 +2,7 @@ import { WeddingData } from "@/app/pozivnica/[slug]/types";
 
 const weddingData: WeddingData = {
   theme: "luxury",
+  scriptFont: "alex-brush", // Options: "great-vibes" | "dancing-script" | "alex-brush" | "parisienne" | "allura"
   rsvp_form_url:
     "https://docs.google.com/forms/d/e/1FAIpQLSeAhevdOrCIPXGvvOU-fmwm8g5BHFK-7uU-PuA97aYZMLbSBQ/formResponse",
   entry_IDs: {
@@ -16,6 +17,7 @@ const weddingData: WeddingData = {
     full_display: "Emilija & Aleksa",
   },
   event_date: "2026-08-29T16:00:00",
+  submit_until: "05. Avgusta 2026.",
   tagline: "Započnimo naše zajedničko poglavlje uz vaše prisustvo i osmehe.",
   locations: [
     {

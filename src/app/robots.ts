@@ -11,15 +11,14 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/private/", "/admin/"],
-      },
-      {
-        userAgent: "Googlebot",
-        allow: "/",
-      },
-      {
-        userAgent: "Googlebot-Image",
-        allow: ["/", "/images/"],
+        disallow: [
+          "/api/",
+          "/_next/",
+          "/private/",
+          "/admin/",
+          "/pozivnica/",
+          "/napravi-pozivnicu",
+        ],
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,

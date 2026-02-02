@@ -85,7 +85,7 @@ export const EnvelopeLoader: React.FC<EnvelopeLoaderProps> = ({
 
           {/* 2. THE CARD (Invitation) */}
           <div
-            className={`absolute inset-3 bg-gradient-to-b from-white to-[#fdfcfa] shadow-2xl flex flex-col items-center justify-center text-center p-6 sm:p-12 border border-stone-100 will-change-transform transition-all duration-[2200ms] cubic-bezier(0.19, 1, 0.22, 1)
+            className={`absolute inset-2 sm:inset-3 bg-gradient-to-b from-white to-[#fdfcfa] shadow-2xl flex flex-col items-center justify-center text-center p-4 sm:p-12 border border-stone-100 will-change-transform transition-all duration-[2200ms] cubic-bezier(0.19, 1, 0.22, 1)
               ${stage === "sealed" ? "opacity-0 scale-95 z-10" : ""}
               ${stage === "opening" ? "opacity-100 scale-100 z-10" : ""}
               ${stage === "extracted" || stage === "fadeout" ? "z-10 shadow-[0_60px_130px_-30px_rgba(0,0,0,0.35)]" : ""}
@@ -99,27 +99,27 @@ export const EnvelopeLoader: React.FC<EnvelopeLoaderProps> = ({
             }}
           >
             {/* Decorative border */}
-            <div className="absolute inset-3 border border-[#d4af37]/20 pointer-events-none"></div>
-            <div className="absolute inset-4 border border-[#d4af37]/10 pointer-events-none"></div>
+            <div className="absolute inset-2 sm:inset-3 border border-[#d4af37]/20 pointer-events-none"></div>
+            <div className="absolute inset-3 sm:inset-4 border border-[#d4af37]/10 pointer-events-none"></div>
 
             {/* Corner ornaments */}
-            <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-[#d4af37]/30"></div>
-            <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-[#d4af37]/30"></div>
-            <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-[#d4af37]/30"></div>
-            <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-[#d4af37]/30"></div>
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 w-4 h-4 sm:w-6 sm:h-6 border-t-2 border-l-2 border-[#d4af37]/30"></div>
+            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-4 h-4 sm:w-6 sm:h-6 border-t-2 border-r-2 border-[#d4af37]/30"></div>
+            <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-4 h-4 sm:w-6 sm:h-6 border-b-2 border-l-2 border-[#d4af37]/30"></div>
+            <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-4 h-4 sm:w-6 sm:h-6 border-b-2 border-r-2 border-[#d4af37]/30"></div>
 
-            <p className="font-elegant uppercase tracking-[0.5em] text-[7px] sm:text-[10px] text-stone-400 mb-4">
+            <p className="font-elegant uppercase tracking-[0.2em] sm:tracking-[0.5em] text-[6px] sm:text-[10px] text-stone-400 mb-2 sm:mb-4">
               Pozivamo Vas
             </p>
-            <h2 className="font-script text-4xl sm:text-6xl text-[#d4af37] leading-tight px-4 select-none drop-shadow-sm">
+            <h2 className="font-script text-2xl sm:text-6xl text-[#d4af37] leading-tight px-2 sm:px-4 select-none drop-shadow-sm">
               {names}
             </h2>
-            <div className="flex items-center gap-3 my-6">
-              <div className="w-8 h-px bg-gradient-to-r from-transparent to-[#d4af37]/40"></div>
-              <div className="w-2 h-2 rotate-45 border border-[#d4af37]/40"></div>
-              <div className="w-8 h-px bg-gradient-to-l from-transparent to-[#d4af37]/40"></div>
+            <div className="flex items-center gap-2 sm:gap-3 my-3 sm:my-6">
+              <div className="w-5 sm:w-8 h-px bg-gradient-to-r from-transparent to-[#d4af37]/40"></div>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 border border-[#d4af37]/40"></div>
+              <div className="w-5 sm:w-8 h-px bg-gradient-to-l from-transparent to-[#d4af37]/40"></div>
             </div>
-            <p className="font-serif italic text-stone-500 text-[10px] sm:text-xs tracking-[0.3em]">
+            <p className="font-serif italic text-stone-500 text-[8px] sm:text-xs tracking-[0.15em] sm:tracking-[0.3em]">
               {eventDate}
             </p>
           </div>
@@ -140,15 +140,15 @@ export const EnvelopeLoader: React.FC<EnvelopeLoaderProps> = ({
             ></div>
           </div>
 
-          {/* 4. WAX SEAL - Outside flap container so it won't be clipped */}
+          {/* 4. WAX SEAL - Positioned at the bottom tip of the flap (56% height) */}
           <div
-            className={`absolute top-30 left-1/2 -translate-x-1/2 w-14 h-14 sm:w-[70px] sm:h-[70px] z-[60] transition-all duration-1000 cubic-bezier(0.175, 0.885, 0.32, 1.275)
+            className={`absolute top-[56%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-[70px] sm:h-[70px] z-[60] transition-all duration-1000 cubic-bezier(0.175, 0.885, 0.32, 1.275)
                  ${stage !== "sealed" ? "scale-0 opacity-0 blur-md" : "scale-100 opacity-100"}`}
           >
             <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#b82828] to-[#8a1c1c] shadow-[0_8px_25px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.2),inset_0_-2px_4px_rgba(0,0,0,0.2)] flex items-center justify-center border border-[#6d1515]">
               {/* Wax seal texture */}
-              <div className="absolute inset-1 rounded-full border border-[#d4af37]/30"></div>
-              <span className="font-serif text-[#d4af37] text-xl sm:text-2xl select-none drop-shadow-md">
+              <div className="absolute inset-0.5 sm:inset-1 rounded-full border border-[#d4af37]/30"></div>
+              <span className="font-serif text-[#d4af37] text-base sm:text-2xl select-none drop-shadow-md">
                 {initials}
               </span>
               <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_30%,_rgba(255,255,255,0.15),_transparent_50%)]"></div>

@@ -84,7 +84,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
 
   if (isLoading) {
     return (
-      <ThemeProvider theme={data.theme}>
+      <ThemeProvider theme={data.theme} scriptFont={data.scriptFont}>
         <EnvelopeLoader
           names={data.couple_names.full_display}
           eventDate={formattedDate.short}
@@ -95,7 +95,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
   }
 
   return (
-    <ThemeProvider theme={data.theme}>
+    <ThemeProvider theme={data.theme} scriptFont={data.scriptFont}>
       <div
         className={`invitation-page min-h-screen transition-all duration-[2000ms] ease-out ${isRevealed ? "opacity-100" : "opacity-0"}`}
         style={{
@@ -526,7 +526,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
                 className="font-semibold"
                 style={{ color: "var(--theme-text)" }}
               >
-                15. Maja 2026.
+                {data.submit_until}
               </span>
             </p>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface CountdownProps {
   targetDate: string;
@@ -9,63 +9,79 @@ interface CountdownProps {
 interface TimeBlockProps {
   value: number;
   label: string;
-  isLast?: boolean;
 }
 
-const TimeBlock: React.FC<TimeBlockProps> = ({ value, label, isLast }) => (
-  <div className="flex items-center">
-    <div className="flex flex-col items-center group">
-      {/* Number container */}
-      <div className="relative">
-        <div
-          className="w-20 h-24 sm:w-28 sm:h-32 flex items-center justify-center backdrop-blur-sm transition-all duration-500"
-          style={{
-            backgroundColor: "rgba(255,255,255,0.8)",
-            borderRadius: "var(--theme-radius)",
-            boxShadow: "var(--theme-shadow)",
-            border: "1px solid var(--theme-border)",
-          }}
-        >
-          <span
-            className="text-4xl sm:text-6xl font-serif tabular-nums"
-            style={{ color: "var(--theme-text)" }}
-          >
-            {value.toString().padStart(2, '0')}
-          </span>
-        </div>
-        {/* Decorative corner accents */}
-        <div
-          className="absolute -top-1 -left-1 w-3 h-3"
-          style={{ borderTop: "1px solid var(--theme-border)", borderLeft: "1px solid var(--theme-border)" }}
-        />
-        <div
-          className="absolute -top-1 -right-1 w-3 h-3"
-          style={{ borderTop: "1px solid var(--theme-border)", borderRight: "1px solid var(--theme-border)" }}
-        />
-        <div
-          className="absolute -bottom-1 -left-1 w-3 h-3"
-          style={{ borderBottom: "1px solid var(--theme-border)", borderLeft: "1px solid var(--theme-border)" }}
-        />
-        <div
-          className="absolute -bottom-1 -right-1 w-3 h-3"
-          style={{ borderBottom: "1px solid var(--theme-border)", borderRight: "1px solid var(--theme-border)" }}
-        />
-      </div>
-      {/* Label */}
-      <span
-        className="mt-4 text-[10px] sm:text-xs font-elegant uppercase tracking-[0.3em]"
-        style={{ color: "var(--theme-text-muted)" }}
+const TimeBlock: React.FC<TimeBlockProps> = ({ value, label }) => (
+  <div className="flex flex-col items-center">
+    {/* Number container */}
+    <div className="relative">
+      <div
+        className="w-[72px] h-[88px] sm:w-28 sm:h-32 flex items-center justify-center backdrop-blur-sm transition-all duration-500"
+        style={{
+          backgroundColor: "rgba(255,255,255,0.8)",
+          borderRadius: "var(--theme-radius)",
+          boxShadow: "var(--theme-shadow)",
+          border: "1px solid var(--theme-border)",
+        }}
       >
-        {label}
-      </span>
-    </div>
-    {/* Separator */}
-    {!isLast && (
-      <div className="mx-3 sm:mx-6 flex flex-col items-center gap-2 opacity-30">
-        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--theme-primary)" }} />
-        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--theme-primary)" }} />
+        <span
+          className="text-3xl sm:text-6xl font-serif tabular-nums"
+          style={{ color: "var(--theme-text)" }}
+        >
+          {value.toString().padStart(2, "0")}
+        </span>
       </div>
-    )}
+      {/* Decorative corner accents */}
+      <div
+        className="absolute -top-1 -left-1 w-2 h-2 sm:w-3 sm:h-3"
+        style={{
+          borderTop: "1px solid var(--theme-border)",
+          borderLeft: "1px solid var(--theme-border)",
+        }}
+      />
+      <div
+        className="absolute -top-1 -right-1 w-2 h-2 sm:w-3 sm:h-3"
+        style={{
+          borderTop: "1px solid var(--theme-border)",
+          borderRight: "1px solid var(--theme-border)",
+        }}
+      />
+      <div
+        className="absolute -bottom-1 -left-1 w-2 h-2 sm:w-3 sm:h-3"
+        style={{
+          borderBottom: "1px solid var(--theme-border)",
+          borderLeft: "1px solid var(--theme-border)",
+        }}
+      />
+      <div
+        className="absolute -bottom-1 -right-1 w-2 h-2 sm:w-3 sm:h-3"
+        style={{
+          borderBottom: "1px solid var(--theme-border)",
+          borderRight: "1px solid var(--theme-border)",
+        }}
+      />
+    </div>
+    {/* Label */}
+    <span
+      className="mt-3 sm:mt-4 text-[9px] sm:text-xs font-elegant uppercase tracking-[0.2em] sm:tracking-[0.3em]"
+      style={{ color: "var(--theme-text-muted)" }}
+    >
+      {label}
+    </span>
+  </div>
+);
+
+// Separator dots for desktop
+const Separator = () => (
+  <div className="hidden sm:flex flex-col items-center gap-2 opacity-30 my-auto pb-4 mx-4 sm:mx-6">
+    <div
+      className="w-1.5 h-1.5 rounded-full"
+      style={{ backgroundColor: "var(--theme-primary)" }}
+    />
+    <div
+      className="w-1.5 h-1.5 rounded-full"
+      style={{ backgroundColor: "var(--theme-primary)" }}
+    />
   </div>
 );
 
@@ -74,7 +90,7 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
   });
   const [mounted, setMounted] = useState(false);
 
@@ -91,9 +107,11 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
       return {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        hours: Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        ),
         minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        seconds: Math.floor((difference % (1000 * 60)) / 1000),
       };
     };
 
@@ -106,22 +124,39 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     return () => clearInterval(timer);
   }, [targetDate]);
 
-  if (!mounted) {
-    return (
-      <div className="flex flex-wrap justify-center items-start gap-2 py-8">
-        {['Dana', 'Sati', 'Minuta', 'Sekundi'].map((label, idx) => (
-          <TimeBlock key={label} value={0} label={label} isLast={idx === 3} />
-        ))}
-      </div>
-    );
-  }
+  const timeData = mounted
+    ? [
+        { value: timeLeft.days, label: "Dana" },
+        { value: timeLeft.hours, label: "Sati" },
+        { value: timeLeft.minutes, label: "Minuta" },
+        { value: timeLeft.seconds, label: "Sekundi" },
+      ]
+    : [
+        { value: 0, label: "Dana" },
+        { value: 0, label: "Sati" },
+        { value: 0, label: "Minuta" },
+        { value: 0, label: "Sekundi" },
+      ];
 
   return (
-    <div className="flex flex-wrap justify-center items-start gap-2 py-8">
-      <TimeBlock value={timeLeft.days} label="Dana" />
-      <TimeBlock value={timeLeft.hours} label="Sati" />
-      <TimeBlock value={timeLeft.minutes} label="Minuta" />
-      <TimeBlock value={timeLeft.seconds} label="Sekundi" isLast />
+    <div className="py-6 sm:py-8">
+      {/* Mobile: 2x2 grid */}
+      <div className="grid grid-cols-2 gap-4 sm:hidden max-w-[200px] mx-auto">
+        {timeData.map((item) => (
+          <TimeBlock key={item.label} value={item.value} label={item.label} />
+        ))}
+      </div>
+
+      {/* Desktop: horizontal with separators */}
+      <div className="hidden sm:flex justify-center items-start">
+        <TimeBlock value={timeData[0].value} label={timeData[0].label} />
+        <Separator />
+        <TimeBlock value={timeData[1].value} label={timeData[1].label} />
+        <Separator />
+        <TimeBlock value={timeData[2].value} label={timeData[2].label} />
+        <Separator />
+        <TimeBlock value={timeData[3].value} label={timeData[3].label} />
+      </div>
     </div>
   );
 };

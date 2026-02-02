@@ -1,4 +1,39 @@
-import { ThemeType, ThemeConfig } from "./types";
+import { ThemeType, ThemeConfig, ScriptFontType } from "./types";
+
+// Script font configurations
+export interface ScriptFontConfig {
+  name: string;
+  variable: string;
+  description: string;
+}
+
+export const SCRIPT_FONT_CONFIGS: Record<ScriptFontType, ScriptFontConfig> = {
+  "great-vibes": {
+    name: "Great Vibes",
+    variable: "var(--font-great-vibes)",
+    description: "Elegant flowing script",
+  },
+  "dancing-script": {
+    name: "Dancing Script",
+    variable: "var(--font-dancing-script)",
+    description: "Casual and friendly",
+  },
+  "alex-brush": {
+    name: "Alex Brush",
+    variable: "var(--font-alex-brush)",
+    description: "Brush-style calligraphy",
+  },
+  "parisienne": {
+    name: "Parisienne",
+    variable: "var(--font-parisienne)",
+    description: "Romantic French style",
+  },
+  "allura": {
+    name: "Allura",
+    variable: "var(--font-allura)",
+    description: "Classic formal script",
+  },
+};
 
 export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
   // Elegant gold theme - traditional luxury wedding
@@ -103,8 +138,12 @@ export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
 };
 
 // Helper to generate CSS variables from theme config
-export function getThemeCSSVariables(theme: ThemeType): Record<string, string> {
+export function getThemeCSSVariables(
+  theme: ThemeType,
+  scriptFont: ScriptFontType = "great-vibes"
+): Record<string, string> {
   const config = THEME_CONFIGS[theme];
+  const fontConfig = SCRIPT_FONT_CONFIGS[scriptFont];
   return {
     "--theme-primary": config.colors.primary,
     "--theme-primary-light": config.colors.primaryLight,
@@ -127,7 +166,13 @@ export function getThemeCSSVariables(theme: ThemeType): Record<string, string> {
                       config.style.shadows === "sm" ? "0 1px 2px rgba(0,0,0,0.05)" :
                       config.style.shadows === "md" ? "0 4px 6px -1px rgba(0,0,0,0.1)" :
                       "0 10px 15px -3px rgba(0,0,0,0.1)",
+    "--theme-script-font": fontConfig.variable,
   };
+}
+
+// Get script font config
+export function getScriptFontConfig(font: ScriptFontType): ScriptFontConfig {
+  return SCRIPT_FONT_CONFIGS[font];
 }
 
 // Get theme config

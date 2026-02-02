@@ -18,6 +18,7 @@ const weddingData: WeddingData = {
     full_display: "Anastasija & Jovan",
   },
   event_date: "2026-06-06T15:00:00",
+  submit_until: "05. Avgusta 2026.",
   tagline: "Započnimo naše zajedničko poglavlje uz vaše prisustvo i osmehe.",
   locations: [
     {
