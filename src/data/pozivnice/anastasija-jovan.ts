@@ -1,15 +1,16 @@
 import { WeddingData } from "@/app/pozivnica/[slug]/types";
 
 const weddingData: WeddingData = {
-  theme: "minimal",
+  theme: "classic", // Options: "classic" | "modern" | "minimal" | "luxury"
+  scriptFont: "parisienne", // Options: "great-vibes" | "dancing-script" | "alex-brush" | "parisienne" | "allura"
 
   rsvp_form_url:
-    "https://docs.google.com/forms/d/e/1FAIpQLSeAhevdOrCIPXGvvOU-fmwm8g5BHFK-7uU-PuA97aYZMLbSBQ/formResponse",
+    "https://docs.google.com/forms/d/e/1FAIpQLSebuARXf1ZQAAVnkkdxf6nvQZ7eGjWWT-f3WZENM_kioI-NuA/formResponse",
   entry_IDs: {
-    name: "entry.390802369",
-    attending: "entry.1092075394",
-    plusOnes: "entry.201124745",
-    details: "entry.934802230",
+    name: "entry.1765465417",
+    attending: "entry.1547193122",
+    plusOnes: "entry.812322593",
+    details: "entry.220510672",
   },
 
   couple_names: {
@@ -17,18 +18,16 @@ const weddingData: WeddingData = {
     groom: "Jovan",
     full_display: "Anastasija & Jovan",
   },
-  event_date: "2026-06-06T15:00:00",
-  submit_until: "05. Avgusta 2026.",
-  tagline: "Započnimo naše zajedničko poglavlje uz vaše prisustvo i osmehe.",
+  event_date: "2026-09-13T16:00:00",
+  submit_until: "31. Avgusta 2026.",
+  tagline: "Započnimo naše novo životno poglavlje uz vaše prisustvo i osmehe!",
   locations: [
     {
-      name: "Restoran 'Zlatni Venac'",
-      time: "17:00",
-      address: "Bulevar Kralja Aleksandra 123, Beograd",
-      lat: 44.8125,
-      lng: 20.4612,
+      name: "Arena Ilić",
+      time: "16:00",
+      address: "Žarka Zrenjanina 119 A, Bačka Palanka",
       map_url:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.222728952445!2d20.4612!3d44.8125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7ab45347394d%3A0xc34a65a78280f2d4!2sBelgrade!5e0!3m2!1sen!2srs!4v1690000000000!5m2!1sen!2srs",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2808.486728927188!2d19.385624776497636!3d45.25817097107139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b7b8f1d1d791b%3A0x458fdc942b1327f2!2sArena%20Ili%C4%87!5e0!3m2!1ssr!2srs!4v1770064113473!5m2!1ssr!2srs",
       type: "hall",
     },
   ],
@@ -40,16 +39,16 @@ const weddingData: WeddingData = {
       icon: "Users",
     },
     {
-      title: "Crkveno venčanje",
-      time: "15:00",
-      description: "Hram Svetog Save",
-      icon: "Church",
+      title: "Skup u svečanoj sali",
+      time: "16:00",
+      description: "Arena Ilić",
+      icon: "HouseHeart",
     },
     {
-      title: "Svečana večera i proslava",
-      time: "18:00",
-      description: "Prvi ples i zabava do zore",
-      icon: "Music",
+      title: "Gradsko venčanje",
+      time: "17:30",
+      description: "Arena Ilić",
+      icon: "CalendarHeart",
     },
   ],
   countdown_enabled: true,

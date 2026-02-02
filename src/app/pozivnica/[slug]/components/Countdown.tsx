@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 interface CountdownProps {
   targetDate: string;
@@ -85,58 +85,45 @@ const Separator = () => (
   </div>
 );
 
+// Calculate time difference helper
+function calculateTimeLeft(targetDate: string) {
+  const now = new Date().getTime();
+  const target = new Date(targetDate).getTime();
+  const difference = target - now;
+
+  if (difference <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  return {
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((difference % (1000 * 60)) / 1000),
+  };
+}
+
 export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-  const [mounted, setMounted] = useState(false);
+  // Initialize with calculated value using lazy initializer
+  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(targetDate));
 
-  useEffect(() => {
-    setMounted(true);
-    const calculateTime = () => {
-      const now = new Date().getTime();
-      const target = new Date(targetDate).getTime();
-      const difference = target - now;
-
-      if (difference <= 0) {
-        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-      }
-
-      return {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(
-          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-        ),
-        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((difference % (1000 * 60)) / 1000),
-      };
-    };
-
-    setTimeLeft(calculateTime());
-
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTime());
-    }, 1000);
-
-    return () => clearInterval(timer);
+  const updateTime = useCallback(() => {
+    setTimeLeft(calculateTimeLeft(targetDate));
   }, [targetDate]);
 
-  const timeData = mounted
-    ? [
-        { value: timeLeft.days, label: "Dana" },
-        { value: timeLeft.hours, label: "Sati" },
-        { value: timeLeft.minutes, label: "Minuta" },
-        { value: timeLeft.seconds, label: "Sekundi" },
-      ]
-    : [
-        { value: 0, label: "Dana" },
-        { value: 0, label: "Sati" },
-        { value: 0, label: "Minuta" },
-        { value: 0, label: "Sekundi" },
-      ];
+  useEffect(() => {
+    // Update every second
+    const timer = setInterval(updateTime, 1000);
+
+    return () => clearInterval(timer);
+  }, [updateTime]);
+
+  const timeData = [
+    { value: timeLeft.days, label: "Dana" },
+    { value: timeLeft.hours, label: "Sati" },
+    { value: timeLeft.minutes, label: "Minuta" },
+    { value: timeLeft.seconds, label: "Sekundi" },
+  ];
 
   return (
     <div className="py-6 sm:py-8">

@@ -70,8 +70,8 @@ export const EnvelopeLoader: React.FC<EnvelopeLoaderProps> = ({
         ))}
       </div>
 
-      {/* 3D Scene */}
-      <div className="relative w-[300px] h-[200px] sm:w-[480px] sm:h-[310px] perspective-[1500px]">
+      {/* 3D Scene - moved down slightly so card doesn't go off screen */}
+      <div className="relative w-[300px] h-[200px] sm:w-[480px] sm:h-[310px] perspective-[1500px] mt-8 sm:mt-0">
         {/* ENVELOPE ASSEMBLY */}
         <div
           className={`relative w-full h-full preserve-3d transition-all duration-[1500ms] will-change-transform
@@ -93,7 +93,7 @@ export const EnvelopeLoader: React.FC<EnvelopeLoaderProps> = ({
             style={{
               transform:
                 stage === "extracted" || stage === "fadeout"
-                  ? "translateY(-105%) scale(1.05)"
+                  ? "translateY(-80%) scale(1.03)"
                   : "translateY(0) scale(1)",
               backfaceVisibility: "hidden",
             }}
@@ -109,7 +109,7 @@ export const EnvelopeLoader: React.FC<EnvelopeLoaderProps> = ({
             <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-4 h-4 sm:w-6 sm:h-6 border-b-2 border-r-2 border-[#d4af37]/30"></div>
 
             <p className="font-elegant uppercase tracking-[0.2em] sm:tracking-[0.5em] text-[6px] sm:text-[10px] text-stone-400 mb-2 sm:mb-4">
-              Pozivamo Vas
+              Pozivaju Vas na venčanje
             </p>
             <h2 className="font-script text-2xl sm:text-6xl text-[#d4af37] leading-tight px-2 sm:px-4 select-none drop-shadow-sm">
               {names}

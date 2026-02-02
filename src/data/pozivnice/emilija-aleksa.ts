@@ -1,7 +1,7 @@
 import { WeddingData } from "@/app/pozivnica/[slug]/types";
 
 const weddingData: WeddingData = {
-  theme: "luxury",
+  theme: "luxury", // Options: "classic" | "modern" | "minimal" | "luxury"
   scriptFont: "alex-brush", // Options: "great-vibes" | "dancing-script" | "alex-brush" | "parisienne" | "allura"
   rsvp_form_url:
     "https://docs.google.com/forms/d/e/1FAIpQLSeAhevdOrCIPXGvvOU-fmwm8g5BHFK-7uU-PuA97aYZMLbSBQ/formResponse",

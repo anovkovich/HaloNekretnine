@@ -8,10 +8,20 @@ import {
   GlassWater,
   Utensils,
   Sparkles,
+  CalendarHeart,
+  HouseHeart,
 } from "lucide-react";
 import { TimelineItem } from "../types";
 
-const IconMap: Record<string, React.ComponentType<{ size: number; strokeWidth: number; className?: string; style?: React.CSSProperties }>> = {
+const IconMap: Record<
+  string,
+  React.ComponentType<{
+    size: number;
+    strokeWidth: number;
+    className?: string;
+    style?: React.CSSProperties;
+  }>
+> = {
   Church,
   Users,
   Heart,
@@ -20,6 +30,8 @@ const IconMap: Record<string, React.ComponentType<{ size: number; strokeWidth: n
   GlassWater,
   Utensils,
   Sparkles,
+  CalendarHeart,
+  HouseHeart,
 };
 
 interface TimelineProps {
@@ -33,7 +45,9 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
       <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 h-full w-px top-0">
         <div
           className="h-full w-full"
-          style={{ background: `linear-gradient(to bottom, transparent, var(--theme-border), transparent)` }}
+          style={{
+            background: `linear-gradient(to bottom, transparent, var(--theme-border), transparent)`,
+          }}
         />
       </div>
 
@@ -90,18 +104,27 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
                   {/* Hover shimmer effect */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{ background: `linear-gradient(to right, transparent, var(--theme-primary-muted), transparent)` }}
+                    style={{
+                      background: `linear-gradient(to right, transparent, var(--theme-primary-muted), transparent)`,
+                    }}
                   />
 
                   {/* Decorative corner */}
-                  <div className={`absolute top-0 ${isEven ? 'md:left-0' : 'md:right-0'} left-0 w-12 h-12`}>
+                  <div
+                    className={`absolute top-0 ${isEven ? "md:left-0" : "md:right-0"} left-0 w-12 h-12`}
+                  >
                     <div
-                      className={`absolute top-3 ${isEven ? 'md:left-3' : 'md:right-3'} left-3 w-6 h-6`}
-                      style={{ borderTop: "1px solid var(--theme-border)", borderLeft: "1px solid var(--theme-border)" }}
+                      className={`absolute top-3 ${isEven ? "md:left-3" : "md:right-3"} left-3 w-6 h-6`}
+                      style={{
+                        borderTop: "1px solid var(--theme-border)",
+                        borderLeft: "1px solid var(--theme-border)",
+                      }}
                     />
                   </div>
 
-                  <div className={`relative flex flex-col ${isEven ? "md:items-start" : "md:items-end"}`}>
+                  <div
+                    className={`relative flex flex-col ${isEven ? "md:items-start" : "md:items-end"}`}
+                  >
                     {/* Time badge */}
                     <span
                       className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] mb-4"
@@ -146,9 +169,23 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
       {/* End ornament */}
       <div className="flex justify-center mt-16">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-px" style={{ background: `linear-gradient(to right, transparent, var(--theme-border))` }} />
-          <Heart size={16} style={{ color: "var(--theme-primary)", opacity: 0.4 }} strokeWidth={1} />
-          <div className="w-12 h-px" style={{ background: `linear-gradient(to left, transparent, var(--theme-border))` }} />
+          <div
+            className="w-12 h-px"
+            style={{
+              background: `linear-gradient(to right, transparent, var(--theme-border))`,
+            }}
+          />
+          <Heart
+            size={16}
+            style={{ color: "var(--theme-primary)", opacity: 0.4 }}
+            strokeWidth={1}
+          />
+          <div
+            className="w-12 h-px"
+            style={{
+              background: `linear-gradient(to left, transparent, var(--theme-border))`,
+            }}
+          />
         </div>
       </div>
     </div>

@@ -23,12 +23,12 @@ export const SCRIPT_FONT_CONFIGS: Record<ScriptFontType, ScriptFontConfig> = {
     variable: "var(--font-alex-brush)",
     description: "Brush-style calligraphy",
   },
-  "parisienne": {
+  parisienne: {
     name: "Parisienne",
     variable: "var(--font-parisienne)",
     description: "Romantic French style",
   },
-  "allura": {
+  allura: {
     name: "Allura",
     variable: "var(--font-allura)",
     description: "Classic formal script",
@@ -40,15 +40,15 @@ export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
   luxury: {
     name: "Luxury Gold",
     colors: {
-      primary: "#d4af37",        // Gold
+      primary: "#d4af37", // Gold
       primaryLight: "#e8d48a",
       primaryMuted: "rgba(212, 175, 55, 0.15)",
       background: "#ffffff",
-      surface: "#faf9f6",        // Ivory
+      surface: "#faf9f6", // Ivory
       surfaceAlt: "#f5f3ee",
       text: "#1a1a1a",
-      textMuted: "#78716c",      // stone-500
-      textLight: "#a8a29e",      // stone-400
+      textMuted: "#78716c", // stone-500
+      textLight: "#a8a29e", // stone-400
       border: "rgba(212, 175, 55, 0.2)",
       borderLight: "rgba(212, 175, 55, 0.1)",
       waxSeal: "#b82828",
@@ -65,11 +65,11 @@ export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
   classic: {
     name: "Classic Rose",
     colors: {
-      primary: "#9e4a5d",        // Dusty rose
+      primary: "#9e4a5d", // Dusty rose
       primaryLight: "#c4899a",
       primaryMuted: "rgba(158, 74, 93, 0.12)",
       background: "#ffffff",
-      surface: "#fdf8f8",        // Rose tinted white
+      surface: "#fdf8f8", // Rose tinted white
       surfaceAlt: "#fbf2f2",
       text: "#2d2426",
       textMuted: "#6b5a5e",
@@ -81,7 +81,7 @@ export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
     },
     style: {
       radius: "md",
-      ornaments: true,
+      ornaments: false,
       shadows: "md",
     },
   },
@@ -90,15 +90,15 @@ export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
   modern: {
     name: "Modern Mono",
     colors: {
-      primary: "#1a1a1a",        // Black
+      primary: "#1a1a1a", // Black
       primaryLight: "#404040",
       primaryMuted: "rgba(26, 26, 26, 0.08)",
       background: "#ffffff",
       surface: "#fafafa",
       surfaceAlt: "#f5f5f5",
       text: "#0a0a0a",
-      textMuted: "#525252",      // neutral-600
-      textLight: "#a3a3a3",      // neutral-400
+      textMuted: "#525252", // neutral-600
+      textLight: "#a3a3a3", // neutral-400
       border: "rgba(0, 0, 0, 0.1)",
       borderLight: "rgba(0, 0, 0, 0.05)",
       waxSeal: "#1a1a1a",
@@ -115,11 +115,11 @@ export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
   minimal: {
     name: "Minimal Sage",
     colors: {
-      primary: "#7c9a72",        // Sage green
+      primary: "#7c9a72", // Sage green
       primaryLight: "#a8c4a0",
       primaryMuted: "rgba(124, 154, 114, 0.12)",
       background: "#ffffff",
-      surface: "#f8faf7",        // Green tinted white
+      surface: "#f8faf7", // Green tinted white
       surfaceAlt: "#f2f5f1",
       text: "#2e3830",
       textMuted: "#5c6b5e",
@@ -140,7 +140,7 @@ export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
 // Helper to generate CSS variables from theme config
 export function getThemeCSSVariables(
   theme: ThemeType,
-  scriptFont: ScriptFontType = "great-vibes"
+  scriptFont: ScriptFontType = "great-vibes",
 ): Record<string, string> {
   const config = THEME_CONFIGS[theme];
   const fontConfig = SCRIPT_FONT_CONFIGS[scriptFont];
@@ -158,14 +158,24 @@ export function getThemeCSSVariables(
     "--theme-border-light": config.colors.borderLight,
     "--theme-wax-seal": config.colors.waxSeal,
     "--theme-wax-seal-dark": config.colors.waxSealDark,
-    "--theme-radius": config.style.radius === "none" ? "0" :
-                      config.style.radius === "sm" ? "0.375rem" :
-                      config.style.radius === "md" ? "0.75rem" :
-                      config.style.radius === "lg" ? "1rem" : "9999px",
-    "--theme-shadow": config.style.shadows === "none" ? "none" :
-                      config.style.shadows === "sm" ? "0 1px 2px rgba(0,0,0,0.05)" :
-                      config.style.shadows === "md" ? "0 4px 6px -1px rgba(0,0,0,0.1)" :
-                      "0 10px 15px -3px rgba(0,0,0,0.1)",
+    "--theme-radius":
+      config.style.radius === "none"
+        ? "0"
+        : config.style.radius === "sm"
+          ? "0.375rem"
+          : config.style.radius === "md"
+            ? "0.75rem"
+            : config.style.radius === "lg"
+              ? "1rem"
+              : "9999px",
+    "--theme-shadow":
+      config.style.shadows === "none"
+        ? "none"
+        : config.style.shadows === "sm"
+          ? "0 1px 2px rgba(0,0,0,0.05)"
+          : config.style.shadows === "md"
+            ? "0 4px 6px -1px rgba(0,0,0,0.1)"
+            : "0 10px 15px -3px rgba(0,0,0,0.1)",
     "--theme-script-font": fontConfig.variable,
   };
 }

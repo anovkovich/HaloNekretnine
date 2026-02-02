@@ -9,6 +9,7 @@ import { EnvelopeLoader } from "./components/EnvelopeLoader";
 import { Countdown } from "./components/Countdown";
 import { Timeline } from "./components/Timeline";
 import { RSVPForm } from "./components/RSVPFrom";
+import Link from "next/link";
 
 interface InvitationClientProps {
   data: WeddingData;
@@ -71,8 +72,11 @@ export default function InvitationClient({ data }: InvitationClientProps) {
     [data],
   );
   const eventTime = useMemo(
-    () => data.timeline[0]?.time || "15:00",
-    [data.timeline],
+    () =>
+      data.event_date.split("T")[1]?.split(":")[0] +
+      ":" +
+      data.event_date.split("T")[1]?.split(":")[1],
+    [data.event_date],
   );
 
   useEffect(() => {
@@ -122,18 +126,18 @@ export default function InvitationClient({ data }: InvitationClientProps) {
           {themeConfig.style.ornaments && (
             <>
               <div
-                className={`absolute inset-6 sm:inset-14 pointer-events-none transition-all duration-[3000ms] delay-500 ${isRevealed ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+                className={`absolute inset-4 sm:inset-8 md:inset-14 pointer-events-none transition-all duration-[3000ms] delay-500 ${isRevealed ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
                 style={{ border: `1px solid var(--theme-border-light)` }}
               />
               <div
-                className={`absolute top-8 left-8 w-12 h-12 sm:w-28 sm:h-28 pointer-events-none transition-all duration-[2000ms] delay-700 ${isRevealed ? "opacity-100 translate-x-0 translate-y-0" : "opacity-0 -translate-x-10 -translate-y-10"}`}
+                className={`absolute top-6 left-6 sm:top-10 sm:left-10 md:top-16 md:left-16 w-10 h-10 sm:w-20 sm:h-20 md:w-28 md:h-28 pointer-events-none transition-all duration-[2000ms] delay-700 ${isRevealed ? "opacity-100 translate-x-0 translate-y-0" : "opacity-0 -translate-x-10 -translate-y-10"}`}
                 style={{
                   borderTop: `2px solid var(--theme-border)`,
                   borderLeft: `2px solid var(--theme-border)`,
                 }}
               />
               <div
-                className={`absolute bottom-8 right-8 w-12 h-12 sm:w-28 sm:h-28 pointer-events-none transition-all duration-[2000ms] delay-700 ${isRevealed ? "opacity-100 translate-x-0 translate-y-0" : "opacity-0 translate-x-10 translate-y-10"}`}
+                className={`absolute bottom-6 right-6 sm:bottom-10 sm:right-10 md:bottom-16 md:right-16 w-10 h-10 sm:w-20 sm:h-20 md:w-28 md:h-28 pointer-events-none transition-all duration-[2000ms] delay-700 ${isRevealed ? "opacity-100 translate-x-0 translate-y-0" : "opacity-0 translate-x-10 translate-y-10"}`}
                 style={{
                   borderBottom: `2px solid var(--theme-border)`,
                   borderRight: `2px solid var(--theme-border)`,
@@ -142,7 +146,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
             </>
           )}
 
-          <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center space-y-10 sm:space-y-16">
+          <div className="relative z-10 w-full my-10 max-h-full max-w-5xl mx-auto flex flex-col items-center space-y-10 sm:space-y-16">
             {/* Subtitle */}
             <div
               className={`flex items-center gap-3 transition-all duration-1000 delay-300 ${isRevealed ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
@@ -157,7 +161,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
                 className="font-elegant uppercase tracking-[0.4em] text-[9px] sm:text-[11px]"
                 style={{ color: "var(--theme-text-light)" }}
               >
-                Slavimo početak novog poglavlja
+                Slavimo ljubav
               </p>
               {themeConfig.style.ornaments && (
                 <Sparkles
@@ -170,14 +174,14 @@ export default function InvitationClient({ data }: InvitationClientProps) {
             {/* Names */}
             <div className="flex flex-col items-center w-full">
               <h1
-                className={`text-5xl xs:text-6xl sm:text-9xl lg:text-[10rem] font-script leading-[0.85] drop-shadow-sm px-4 transition-all duration-[1500ms] delay-500 ${isRevealed ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+                className={`text-5xl xs:text-5xl sm:text-7xl lg:text-[8rem] font-script leading-[0.85] drop-shadow-sm px-4 transition-all duration-[1500ms] delay-500 ${isRevealed ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 style={{ color: "var(--theme-text)" }}
               >
                 {data.couple_names.bride}
               </h1>
 
               <div
-                className={`flex items-center justify-center gap-4 sm:gap-12 my-6 sm:my-10 w-full px-6 transition-all duration-[2000ms] delay-700 ${isRevealed ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
+                className={`flex items-center justify-center gap-4 sm:gap-12 my-4 sm:my-6 w-full px-6 transition-all duration-[2000ms] delay-700 ${isRevealed ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
               >
                 <div
                   className="h-[0.5px] flex-1 max-w-[120px]"
@@ -201,7 +205,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
               </div>
 
               <h1
-                className={`text-5xl xs:text-6xl sm:text-9xl lg:text-[10rem] font-script leading-[0.85] drop-shadow-sm px-4 transition-all duration-[1500ms] delay-600 ${isRevealed ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+                className={`text-5xl xs:text-5xl sm:text-7xl lg:text-[8rem] font-script leading-[0.85] drop-shadow-sm px-4 transition-all duration-[1500ms] delay-600 ${isRevealed ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 style={{ color: "var(--theme-text)" }}
               >
                 {data.couple_names.groom}
@@ -218,7 +222,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
 
             {/* Date display */}
             <div
-              className={`pt-6 flex flex-col items-center gap-10 sm:gap-16 transition-all duration-[2000ms] delay-[1200ms] ${isRevealed ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+              className={`pt-0 flex flex-col items-center gap-6 sm:gap-10 transition-all duration-[2000ms] delay-[1200ms] ${isRevealed ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
             >
               <div className="relative">
                 {themeConfig.style.ornaments && (
@@ -256,12 +260,12 @@ export default function InvitationClient({ data }: InvitationClientProps) {
                     border: `1px solid var(--theme-border-light)`,
                   }}
                 >
-                  <Clock size={16} style={{ color: "var(--theme-primary)" }} />
+                  <MapPin size={16} style={{ color: "var(--theme-primary)" }} />
                   <span
                     className="font-elegant text-sm tracking-[0.2em]"
                     style={{ color: "var(--theme-text-muted)" }}
                   >
-                    {eventTime}
+                    {mainLocation?.name}
                   </span>
                 </span>
                 <span
@@ -271,34 +275,16 @@ export default function InvitationClient({ data }: InvitationClientProps) {
                     border: `1px solid var(--theme-border-light)`,
                   }}
                 >
-                  <MapPin size={16} style={{ color: "var(--theme-primary)" }} />
+                  <Clock size={16} style={{ color: "var(--theme-primary)" }} />
                   <span
                     className="font-elegant text-sm tracking-[0.2em]"
                     style={{ color: "var(--theme-text-muted)" }}
                   >
-                    {mainLocation?.name}
+                    Kada: {eventTime}
                   </span>
                 </span>
               </div>
             </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div
-            className={`absolute bottom-10 sm:bottom-14 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 transition-all duration-[2000ms] delay-[1800ms] ${isRevealed ? "opacity-30" : "opacity-0"}`}
-          >
-            <span
-              className="font-elegant text-[8px] uppercase tracking-[0.3em]"
-              style={{ color: "var(--theme-text-light)" }}
-            >
-              Skrolujte
-            </span>
-            <div
-              className="w-px h-12 sm:h-20"
-              style={{
-                background: `linear-gradient(to bottom, var(--theme-primary), transparent)`,
-              }}
-            />
           </div>
         </section>
 
@@ -334,7 +320,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
                 className="font-elegant text-xs uppercase tracking-[0.4em] mb-12"
                 style={{ color: "var(--theme-text-light)" }}
               >
-                do našeg posebnog dana
+                -
               </p>
               {themeConfig.style.ornaments && (
                 <div className="flex items-center justify-center gap-4 mb-12">
@@ -535,7 +521,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
 
         {/* Footer */}
         <footer
-          className="relative py-32 sm:py-48 text-center overflow-hidden"
+          className="relative pt-32 sm:pt-48 text-center overflow-hidden"
           style={{ backgroundColor: "var(--theme-surface)" }}
         >
           <div
@@ -554,7 +540,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
             />
           )}
 
-          <div className="relative">
+          <div className="relative  pb-32 sm:pt-48">
             <p
               className="font-script text-5xl sm:text-8xl mb-8"
               style={{ color: "var(--theme-primary)" }}
@@ -598,6 +584,18 @@ export default function InvitationClient({ data }: InvitationClientProps) {
               {formattedDate.short}
             </p>
           </div>
+
+          <Link
+            href="/"
+            className="mt-8 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity"
+          >
+            <img
+              // src="/HaloUspomene/images/logo.png"
+              src="/images/full-logo.png"
+              alt="Halo Uspomene LOGO"
+              className="h-8 mb-2"
+            />
+          </Link>
         </footer>
       </div>
     </ThemeProvider>

@@ -52,9 +52,9 @@ export default function NotFound() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Nova pozivnica - ${formData.name} & ${formData.partnerName}`,
-          from_name: "HALO Uspomene - Pozivnice",
-          ime_mladenaca: `${formData.name} & ${formData.partnerName}`,
+          subject: `CUSTOM POZIVNICA - ${formData.name} & ${formData.partnerName}`,
+          from_name: "HALO Uspomene - POZIVNICE",
+          ime_mladenaca: `${formData.name}`,
           email: formData.email,
           telefon: formData.phone || "Nije naveden",
           datum_vencanja: formattedDate,
