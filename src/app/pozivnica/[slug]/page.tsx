@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getWeddingData, getAllWeddingSlugs } from "@/data/pozivnice";
 import InvitationClient from "./InvitationClient";
 
-const BASE_URL = "https://anovkovich.github.io/HaloUspomene";
+const BASE_URL = "https://halouspomene.rs";
 
 interface PageProps {
   params: Promise<{
@@ -39,7 +39,7 @@ export async function generateMetadata({
       description,
       images: [
         {
-          url: `${BASE_URL}/gallery/digitalna-pozivnica.png`,
+          url: `${BASE_URL}/images/gallery/digitalna-pozivnica.png`,
           width: 1200,
           height: 630,
           alt: title,
@@ -51,7 +51,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [`${BASE_URL}/gallery/digitalna-pozivnica.png`],
+      images: [`${BASE_URL}/images/gallery/digitalna-pozivnica.png`],
     },
   };
 }

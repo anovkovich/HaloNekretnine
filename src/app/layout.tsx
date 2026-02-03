@@ -86,7 +86,7 @@ const josefinSans = Josefin_Sans({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://anovkovich.github.io/HaloUspomene";
+  "https://halouspomene.rs";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
