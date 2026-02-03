@@ -38,6 +38,16 @@ export const SCRIPT_FONT_CONFIGS: Record<ScriptFontType, ScriptFontConfig> = {
     variable: "var(--font-marck-script)",
     description: "Elegant Cyrillic script",
   },
+  caveat: {
+    name: "Caveat",
+    variable: "var(--font-caveat)",
+    description: "Flowing handwritten Cyrillic",
+  },
+  "bad-script": {
+    name: "Bad Script",
+    variable: "var(--font-bad-script)",
+    description: "Casual handwritten Cyrillic",
+  },
 };
 
 export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
@@ -49,7 +59,7 @@ export const THEME_CONFIGS: Record<ThemeType, ThemeConfig> = {
       primaryLight: "#e8d48a",
       primaryMuted: "rgba(212, 175, 55, 0.15)",
       background: "#ffffff",
-      surface: "#faf9f6", // Ivory
+      surface: "#fffff",
       surfaceAlt: "#f5f3ee",
       text: "#1a1a1a",
       textMuted: "#78716c", // stone-500

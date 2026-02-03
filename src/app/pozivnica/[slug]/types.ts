@@ -1,5 +1,5 @@
 export type ThemeType = "classic" | "modern" | "minimal" | "luxury";
-export type ScriptFontType = "great-vibes" | "dancing-script" | "alex-brush" | "parisienne" | "allura" | "marck-script";
+export type ScriptFontType = "great-vibes" | "dancing-script" | "alex-brush" | "parisienne" | "allura" | "marck-script" | "caveat" | "bad-script";
 
 export interface Location {
   name: string;

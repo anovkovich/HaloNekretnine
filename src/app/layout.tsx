@@ -8,6 +8,8 @@ import {
   Parisienne,
   Allura,
   Marck_Script,
+  Caveat,
+  Bad_Script,
   Cormorant_Garamond,
   Josefin_Sans,
 } from "next/font/google";
@@ -61,10 +63,24 @@ const allura = Allura({
   display: "swap",
 });
 
-// Cyrillic script font
+// Cyrillic script fonts
 const marckScript = Marck_Script({
   weight: "400",
   variable: "--font-marck-script",
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  weight: "400",
+  variable: "--font-caveat",
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+});
+
+const badScript = Bad_Script({
+  weight: "400",
+  variable: "--font-bad-script",
   subsets: ["latin", "cyrillic"],
   display: "swap",
 });
@@ -286,7 +302,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${greatVibes.variable} ${dancingScript.variable} ${alexBrush.variable} ${parisienne.variable} ${allura.variable} ${marckScript.variable} ${cormorantGaramond.variable} ${josefinSans.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${greatVibes.variable} ${dancingScript.variable} ${alexBrush.variable} ${parisienne.variable} ${allura.variable} ${marckScript.variable} ${caveat.variable} ${badScript.variable} ${cormorantGaramond.variable} ${josefinSans.variable} antialiased`}
       >
         {children}
       </body>

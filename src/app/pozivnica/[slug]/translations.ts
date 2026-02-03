@@ -81,7 +81,7 @@ export const latinTranslations: Translations = {
 
   // Timeline
   protocol: "Protokol",
-  ourDayPlan: "Plan našeg zajedničkog dana",
+  ourDayPlan: "Plan našeg dana",
 
   // Location
   location: "Lokacija",
@@ -122,11 +122,27 @@ export const latinTranslations: Translations = {
 
   // Date labels
   months: [
-    "Januar", "Februar", "Mart", "April", "Maj", "Jun",
-    "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"
+    "Januar",
+    "Februar",
+    "Mart",
+    "April",
+    "Maj",
+    "Jun",
+    "Jul",
+    "Avgust",
+    "Septembar",
+    "Oktobar",
+    "Novembar",
+    "Decembar",
   ],
   days_week: [
-    "Nedelja", "Ponedeljak", "Utorak", "Sreda", "Četvrtak", "Petak", "Subota"
+    "Nedelja",
+    "Ponedeljak",
+    "Utorak",
+    "Sreda",
+    "Četvrtak",
+    "Petak",
+    "Subota",
   ],
 };
 
@@ -148,7 +164,7 @@ export const cyrillicTranslations: Translations = {
 
   // Timeline
   protocol: "Протокол",
-  ourDayPlan: "План нашег заједничког дана",
+  ourDayPlan: "План нашег дана",
 
   // Location
   location: "Локација",
@@ -189,11 +205,27 @@ export const cyrillicTranslations: Translations = {
 
   // Date labels
   months: [
-    "Јануар", "Фебруар", "Март", "Април", "Мај", "Јун",
-    "Јул", "Август", "Септембар", "Октобар", "Новембар", "Децембар"
+    "Јануар",
+    "Фебруар",
+    "Март",
+    "Април",
+    "Мај",
+    "Јун",
+    "Јул",
+    "Август",
+    "Септембар",
+    "Октобар",
+    "Новембар",
+    "Децембар",
   ],
   days_week: [
-    "Недеља", "Понедељак", "Уторак", "Среда", "Четвртак", "Петак", "Субота"
+    "Недеља",
+    "Понедељак",
+    "Уторак",
+    "Среда",
+    "Четвртак",
+    "Петак",
+    "Субота",
   ],
 };
 

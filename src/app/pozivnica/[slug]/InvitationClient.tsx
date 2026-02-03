@@ -11,6 +11,7 @@ import { Countdown } from "./components/Countdown";
 import { Timeline } from "./components/Timeline";
 import { RSVPForm } from "./components/RSVPFrom";
 import Link from "next/link";
+import { link } from "fs";
 
 interface InvitationClientProps {
   data: WeddingData;
@@ -38,6 +39,14 @@ function formatEventDate(
     short: `${day}. ${months[month]} ${year}.`,
     dayName,
   };
+}
+
+// Helper function to scroll to element by ID
+function scrollTo(elementId: string) {
+  const element = document.getElementById(elementId.replace("#", ""));
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 export default function InvitationClient({ data }: InvitationClientProps) {
@@ -118,10 +127,6 @@ export default function InvitationClient({ data }: InvitationClientProps) {
           {/* Decorative frame - only show if ornaments enabled */}
           {themeConfig.style.ornaments && (
             <>
-              <div
-                className={`absolute inset-4 sm:inset-8 md:inset-14 pointer-events-none transition-all duration-[3000ms] delay-500 ${isRevealed ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
-                style={{ border: `1px solid var(--theme-border-light)` }}
-              />
               <div
                 className={`absolute top-6 left-6 sm:top-10 sm:left-10 md:top-16 md:left-16 w-10 h-10 sm:w-20 sm:h-20 md:w-28 md:h-28 pointer-events-none transition-all duration-[2000ms] delay-700 ${isRevealed ? "opacity-100 translate-x-0 translate-y-0" : "opacity-0 -translate-x-10 -translate-y-10"}`}
                 style={{
@@ -351,11 +356,13 @@ export default function InvitationClient({ data }: InvitationClientProps) {
                 icon: MapPin,
                 title: t.where,
                 content: `${mainLocation?.name}\n${mainLocation?.address}`,
+                link: "#mapa",
               },
               {
                 icon: Calendar,
                 title: t.whenLabel,
                 content: `${formattedDate.dayName}\n${formattedDate.short} ${eventTime}`,
+                link: "#protokol",
               },
             ].map((item, idx) => (
               <div
@@ -377,6 +384,9 @@ export default function InvitationClient({ data }: InvitationClientProps) {
 
                 <div
                   className="relative w-16 h-16 mx-auto mb-8 rounded-full flex items-center justify-center transition-colors"
+                  onClick={() => {
+                    scrollTo(item.link!);
+                  }}
                   style={{
                     backgroundColor: "var(--theme-surface)",
                     border: `1px solid var(--theme-border)`,
@@ -409,6 +419,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
         {/* Timeline */}
         {data.timeline.length > 0 && (
           <section
+            id="protokol"
             className="relative py-24 sm:py-40 px-4 overflow-hidden"
             style={{
               background: `linear-gradient(to bottom, var(--theme-surface), var(--theme-surface-alt), var(--theme-surface))`,
@@ -423,13 +434,13 @@ export default function InvitationClient({ data }: InvitationClientProps) {
 
             <div className="text-center mb-16 sm:mb-24">
               <h2
-                className="text-6xl sm:text-8xl font-script mb-4"
+                className="text-6xl sm:text-8xl font-script mb-5"
                 style={{ color: "var(--theme-primary)" }}
               >
                 {t.protocol}
               </h2>
               <p
-                className="font-elegant text-xs uppercase tracking-[0.4em]"
+                className="font-serif text-sm sm:text-base leading-relaxed"
                 style={{ color: "var(--theme-text-light)" }}
               >
                 {t.ourDayPlan}
@@ -441,7 +452,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
 
         {/* Map */}
         {data.map_enabled && mainLocation?.map_url && (
-          <section className="py-24 sm:py-40 px-6 max-w-6xl mx-auto">
+          <section id="mapa" className="py-24 sm:py-40 px-6 max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2
                 className="text-5xl sm:text-8xl font-script mb-4"
@@ -491,7 +502,7 @@ export default function InvitationClient({ data }: InvitationClientProps) {
 
           <div className="max-w-2xl mx-auto text-center mb-16">
             <h2
-              className="text-6xl sm:text-8xl font-script mb-4"
+              className="text-6xl sm:text-8xl font-script mb-5"
               style={{ color: "var(--theme-primary)" }}
             >
               {t.rsvpTitle}
@@ -577,21 +588,21 @@ export default function InvitationClient({ data }: InvitationClientProps) {
           </div>
           <Link
             href="/"
-            className="mt-8 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity"
+            className="mt-8 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity"
           >
             <img
-              src="/images/full-logo.png"
+              src="/images/logo.png"
               alt="Halo Uspomene LOGO"
-              className="h-8 mb-2"
+              className="h-6 mb-1"
             />
           </Link>
 
           <Link
             href="/"
-            className="w-full flex font-serif text-center gap-1 mb-5 justify-center items-center text-[10px] sm:text-xs mt-2 sm:mt-4 opacity-50"
+            className="w-full flex font-serif text-center gap-1 mb-5 justify-center items-center text-[10px] sm:text-xs mt-0 sm:mt-2 opacity-50"
           >
             Made with <Heart size={10} className="text-[#AE343F]" /> | Halo
-            Uspomene
+            Pozivnice
           </Link>
         </footer>
       </div>

@@ -41,7 +41,7 @@ const weddingData: WeddingData = {
     {
       title: "Crkveno venčanje",
       time: "13:00",
-      description: "manastir Mileševa",
+      description: "Manastir Mileševa",
       icon: "Church",
     },
     {
