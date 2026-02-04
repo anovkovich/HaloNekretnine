@@ -1,5 +1,13 @@
 export type ThemeType = "classic" | "modern" | "minimal" | "luxury";
-export type ScriptFontType = "great-vibes" | "dancing-script" | "alex-brush" | "parisienne" | "allura" | "marck-script" | "caveat" | "bad-script";
+export type ScriptFontType =
+  | "great-vibes"
+  | "dancing-script"
+  | "alex-brush"
+  | "parisienne"
+  | "allura"
+  | "marck-script"
+  | "caveat"
+  | "bad-script";
 
 export interface Location {
   name: string;
@@ -39,6 +47,7 @@ export interface WeddingData {
   event_date: string; // ISO string or YYYY-MM-DD
   submit_until: string;
   tagline?: string;
+  thankYouFooter?: string;
   locations: Location[];
   timeline: TimelineItem[];
   countdown_enabled: boolean;

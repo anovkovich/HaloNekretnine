@@ -573,10 +573,10 @@ export default function InvitationClient({ data }: InvitationClientProps) {
             </div>
 
             <p
-              className="font-elegant text-xs uppercase tracking-[0.4em]"
+              className="font-elegant text-xs uppercase tracking-[0.3em] px-3"
               style={{ color: "var(--theme-text-light)" }}
             >
-              {t.thankYouFooter}
+              {data.thankYouFooter ? data.thankYouFooter : t.thankYouFooter}
             </p>
 
             <p
