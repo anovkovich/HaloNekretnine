@@ -177,8 +177,8 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    // Add these when you have them:
-    // google: "your-google-verification-code",
+    google:
+      "google-site-verification=WCTG9ozG2RETseK0m-TaZnr7bTyzcW8CPouqW2lmTb8",
     // yandex: "your-yandex-verification-code",
   },
 
