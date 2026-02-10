@@ -1,5 +1,6 @@
 import React from "react";
 import { Check, Package, PackageCheck } from "lucide-react";
+import Link from "next/link";
 
 const packages = [
   {
@@ -71,12 +72,14 @@ const Packages: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <a
+              <Link
                 href="/#kontakt"
                 className={`btn btn-lg w-full rounded-2xl font-bold ${pkg.popular ? "bg-[#AE343F] hover:bg-[#8A2A32] text-[#F5F4DC] border-none" : "bg-[#232323] hover:bg-[#1a1a1a] text-[#F5F4DC] border-none"}`}
+                data-track="package_click"
+                data-track-package-name={pkg.name}
               >
                 {pkg.cta}
-              </a>
+              </Link>
             </div>
           ))}
         </div>

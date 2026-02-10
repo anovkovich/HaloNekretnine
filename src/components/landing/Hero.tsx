@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight, Phone, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 const Hero: React.FC = () => {
   return (
@@ -49,22 +50,28 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5">
-              <a
+              <Link
                 href="/#kontakt"
                 className="btn bg-[#AE343F] hover:bg-[#8A2A32] text-[#F5F4DC] btn-lg rounded-full px-12 shadow-2xl shadow-[#AE343F]/30 group border-none"
+                data-track="cta_click"
+                data-track-cta-name="zakazite_konsultacije"
+                data-track-cta-location="hero"
               >
                 Zakažite konsultacije
                 <ArrowRight
                   size={20}
                   className="group-hover:translate-x-1.5 transition-transform"
                 />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#proces"
                 className="btn btn-outline border-[#232323]/20 text-[#232323] hover:bg-[#232323] hover:text-[#F5F4DC] hover:border-[#232323] btn-lg rounded-full px-12"
+                data-track="cta_click"
+                data-track-cta-name="otkrijte_kako"
+                data-track-cta-location="hero"
               >
                 Otkrijte kako
-              </a>
+              </Link>
             </div>
           </div>
 

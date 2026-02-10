@@ -15,6 +15,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import AnalyticsProvider from "@/components/analytics/AnalyticsProvider";
 import { testimonials } from "@/data/testimonials";
 
 const geistSans = Geist({
@@ -379,6 +380,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${greatVibes.variable} ${dancingScript.variable} ${alexBrush.variable} ${parisienne.variable} ${allura.variable} ${marckScript.variable} ${caveat.variable} ${badScript.variable} ${cormorantGaramond.variable} ${josefinSans.variable} antialiased`}
       >
         {children}
+        {gaId && <AnalyticsProvider />}
       </body>
     </html>
   );

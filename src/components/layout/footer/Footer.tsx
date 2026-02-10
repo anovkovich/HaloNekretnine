@@ -23,6 +23,9 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[#F5F4DC]/60 hover:text-[#AE343F] transition-colors"
+              data-track="social_click"
+              data-track-platform="instagram"
+              data-track-location="footer"
             >
               <Instagram size={18} />
               <span className="text-sm">@halo_uspomene</span>

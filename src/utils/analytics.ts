@@ -35,4 +35,25 @@ export const analytics = {
 
   locationView: (city: string) =>
     trackEvent("location_view", { city_name: city }),
+
+  scrollDepth: (depthPercent: number, pagePath: string) =>
+    trackEvent("scroll_depth", {
+      depth_percent: depthPercent,
+      page_path: pagePath,
+    }),
+
+  sectionView: (sectionId: string, pagePath: string) =>
+    trackEvent("section_view", {
+      section_id: sectionId,
+      page_path: pagePath,
+    }),
+
+  faqInteraction: (question: string) =>
+    trackEvent("faq_interaction", { question }),
+
+  navClick: (linkName: string, location: string) =>
+    trackEvent("nav_click", { link_name: linkName, nav_location: location }),
+
+  socialClick: (platform: string, location: string) =>
+    trackEvent("social_click", { platform, location }),
 };

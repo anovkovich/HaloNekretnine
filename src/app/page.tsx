@@ -124,6 +124,9 @@ export default function Home() {
               <Link
                 href="/napravi-pozivnicu"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a1a1a] text-white text-sm uppercase tracking-widest font-medium hover:bg-[#333] transition-all rounded-full group"
+                data-track="cta_click"
+                data-track-cta-name="pozivnica_cta"
+                data-track-cta-location="promo_section"
               >
                 Zatražite Vašu Pozivnicu
                 <ArrowRight

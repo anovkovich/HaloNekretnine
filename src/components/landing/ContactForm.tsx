@@ -76,7 +76,9 @@ const ContactForm: React.FC = () => {
 
       setIsSubmitted(true);
       analytics.formSubmit("contact");
-      analytics.packageClick(formData.package === "premium" ? "Premium" : "Essential");
+      analytics.packageClick(
+        formData.package === "premium" ? "Premium" : "Essential",
+      );
     } catch (err) {
       setError(
         err instanceof Error
@@ -127,42 +129,6 @@ const ContactForm: React.FC = () => {
 
   return (
     <div>
-      {/* Contact Channels */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-6">
-        <a
-          href="https://wa.me/381601234567?text=Zdravo!%20Zainteresovan/a%20sam%20za%20audio%20guest%20book%20za%20venčanje."
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => analytics.ctaClick("whatsapp", "contact_section")}
-          className="flex items-center justify-center gap-2 px-5 py-3 bg-[#25D366]/20 hover:bg-[#25D366]/30 text-[#25D366] rounded-2xl transition-colors text-sm font-medium"
-        >
-          <MessageCircle size={18} />
-          WhatsApp
-        </a>
-        <a
-          href="viber://chat?number=%2B381601234567"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => analytics.ctaClick("viber", "contact_section")}
-          className="flex items-center justify-center gap-2 px-5 py-3 bg-[#7360F2]/20 hover:bg-[#7360F2]/30 text-[#7360F2] rounded-2xl transition-colors text-sm font-medium"
-        >
-          <MessageCircle size={18} />
-          Viber
-        </a>
-        <a
-          href="tel:+381601234567"
-          onClick={() => analytics.ctaClick("phone_call", "contact_section")}
-          className="flex items-center justify-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/15 text-[#F5F4DC]/70 rounded-2xl transition-colors text-sm font-medium"
-        >
-          <Phone size={18} />
-          Pozovite nas
-        </a>
-      </div>
-
-      <p className="text-center text-[#F5F4DC]/30 text-xs uppercase tracking-widest mb-6">
-        ili popunite formu
-      </p>
-
       <form
         onSubmit={handleSubmit}
         className="space-y-10 bg-white/5 backdrop-blur-md p-6 sm:p-10 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-white/10 shadow-2xl relative"

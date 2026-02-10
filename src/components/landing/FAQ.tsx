@@ -37,13 +37,13 @@ const faqData: FAQItem[] = [
     category: "Dostava",
     question: "Da li dostavljate u Beograd, Novi Sad i ostale gradove?",
     answer:
-      "Da! HALO Uspomene pokriva celu Srbiju. U Novom Sadu nudimo ličnu dostavu i instalaciju, dok za Beograd, Niš, Kragujevac, Suboticu i sve ostale gradove koristimo pouzdanu kurirsku službu sa osiguranjem pošiljke.",
+      "Da! HALO Uspomene pokriva celu Srbiju. U Novom Sadu nudimo ličnu dostavu i instalaciju, dok za Beograd, Niš, Kragujevac, Suboticu i sve ostale gradove dostavljamo telefon kurirskom službom.",
   },
   {
     category: "Dostava",
     question: "Koliko unapred treba da rezervišem?",
     answer:
-      "Preporučujemo rezervaciju najmanje 3-4 nedelje pre venčanja kako bismo osigurali dostupnost za vaš datum. U sezoni venčanja (maj-oktobar) je poželjno i ranije. Kontaktirajte nas čim odredite datum!",
+      "Preporučujemo rezervaciju najmanje 3-4 nedelje pre venčanja kako bismo osigurali dostupnost za vaš datum. U sezoni venčanja (maj-septembar) je poželjno i ranije. Kontaktirajte nas čim odredite datum!",
   },
   {
     category: "Dostava",
@@ -56,36 +56,31 @@ const faqData: FAQItem[] = [
     category: "Tehnička pitanja",
     question: "U kom formatu dobijam audio snimke?",
     answer:
-      "Sve poruke dobijate u digitalnom formatu visokog kvaliteta (MP3/WAV). Šaljemo ih putem linka za preuzimanje u roku od 3-5 radnih dana nakon venčanja. Full Service paket uključuje i uređen digitalni album sa imenima govornika.",
+      "Sve poruke dobijate u digitalnom formatu visokog kvaliteta (MP3/WAV). Šaljemo ih putem linka za preuzimanje u roku od 3-5 radnih dana nakon venčanja. Full Service paket uključuje i uređen digitalni album sa izdvojenim highlights.",
   },
   {
     category: "Tehnička pitanja",
     question: "Da li telefon treba struju ili WiFi?",
     answer:
-      "Telefon radi na bateriju koja traje celu noć — nema potrebe za strujom niti WiFi konekcijom. Jednostavno ga postavite gde želite u sali i on je spreman za korišćenje.",
-  },
-  {
-    category: "Tehnička pitanja",
-    question: "Šta ako se telefon pokvari na venčanju?",
-    answer:
-      "Naši telefoni prolaze detaljnu proveru pre svake dostave. U retkom slučaju tehničkog problema, naš tim je dostupan telefonom tokom celog događaja. Za Full Service paket, naš tehničar je prisutan na licu mesta.",
+      "Telefon radi na bateriju koja traje celu noć — nema potrebe za strujom niti WiFi konekcijom. Jednostavno ga postavite gde želite (poželjno u tiši deo sale ili hodnik) i on je spreman za korišćenje.",
   },
   // Cene
   {
     category: "Cene",
     question: "Koliko košta iznajmljivanje audio guest book telefona?",
     answer:
-      "Nudimo dva paketa: Essential paket sa kurirskom dostavom i osnovnom opremom, i Full Service paket sa ličnom dostavom, drvenom govornicom, personalizacijom i uređenim digitalnim albumom. Tačne cene zavise od lokacije i datuma — kontaktirajte nas za ponudu.",
+      "Nudimo dva paketa: Essential paket sa kurirskom dostavom i osnovnom opremom, i Full Service paket sa ličnom dostavom, drvenom govornicom i personalizacijom. Tačne cene zavise od lokacije i datuma — kontaktirajte nas za ponudu.",
   },
   {
     category: "Cene",
     question: "Da li postoji depozit ili kaucija?",
     answer:
-      "Da, tražimo depozit prilikom rezervacije koji garantuje vaš termin. Depozit se vraća u celosti nakon što telefon bude vraćen u ispravnom stanju. Sve detalje o uslovima možete pronaći u našim opštim uslovima najma.",
+      "Ne, depozit nije potreban ali je neophodno uplatiti uslugu unapred pre slanja telefona. U slučaju otkazivanja vraćamo novac nazad uz zadržavanje 20% na ime kapare. Sve detalje o uslovima možete pronaći u našim opštim uslovima najma.",
   },
   {
     category: "Cene",
-    question: "Da li mogu da koristim audio guest book za rođendan ili drugi događaj?",
+    question:
+      "Da li mogu da koristim audio guest book za rođendan ili drugi događaj?",
     answer:
       "Apsolutno! Iako su venčanja naš primarni fokus, audio guest book je savršen i za rođendane, godišnjice, proslave mature, korporativne događaje i svaku priliku gde želite da sačuvate glasove svojih najdražih.",
   },
@@ -136,7 +131,7 @@ const FAQ: React.FC = () => {
         {categories.map((category) => (
           <div key={category} className="mb-10 last:mb-0">
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#AE343F] mb-4 pl-1">
-              {category}
+              {category !== "Osnovno" ? category : ""}
             </h3>
             <div className="space-y-3">
               {faqData
