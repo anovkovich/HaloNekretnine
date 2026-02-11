@@ -188,6 +188,14 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
 
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/images/icon-192.png", sizes: "192x192" }],
+  },
+
   category: "entertainment",
 };
 
